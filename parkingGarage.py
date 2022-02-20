@@ -54,7 +54,7 @@ class ParkingGarage(): # Chris driver, April and Jamia Navigators, general outli
         # if ticket paid, dict value == True display: Thank you, have a nice day 
         vacant = int(input('What is your ticket number? '))
         # when paid display: Thank you, have a nice day
-        if self.currentTicket[vacant] == "paid":
+        if self.currentTicket[vacant] == "paid" and vacant in self.tickets:
             image.playImage()
             print("                Thank you have a nice day.")
         # update tickets list to increase by 1
@@ -64,6 +64,8 @@ class ParkingGarage(): # Chris driver, April and Jamia Navigators, general outli
         # if not paid display: message to pay ticket before leaving
         elif self.currentTicket[vacant] == "unpaid":
             print("You must pay your ticket before leaving.")
+        else:
+            print("Your ticket is invalid")
         
 
     # menu for calling all methods defined in our class
